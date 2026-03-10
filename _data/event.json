@@ -5,5 +5,11 @@
   "venue_address": "Doctor Trueta, 191, 08005 Barcelona — El Poblenou",
   "venue_url": "https://lafabrica-co.com/en/event-spaces/",
   "register_url": "",
-  "schedule": []
+  "schedule": [
+    {
+      "time": "6:00 PM",
+      "activity": "testactivity",
+      "description": "testdesc"
+    }
+  ]
 }
