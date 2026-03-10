@@ -1,0 +1,75 @@
+backend:
+  name: github
+  repo: YOUR-GITHUB-USERNAME/juneteenthbarcelona  # ← change this
+  branch: main
+
+media_folder: images
+public_folder: /images
+
+collections:
+  # ── EVENT DETAILS ──────────────────────────────────────────
+  - name: event
+    label: "Event Details"
+    files:
+      - name: event
+        label: "Event Details"
+        file: _data/event.json
+        fields:
+          - { label: "Event Title", name: title, widget: string, default: "Juneteenth Barcelona" }
+          - { label: "Date", name: date, widget: string, hint: "e.g. Friday, June 20, 2026" }
+          - { label: "Venue Name", name: venue_name, widget: string }
+          - { label: "Venue Address", name: venue_address, widget: string }
+          - { label: "Venue URL", name: venue_url, widget: string }
+          - { label: "Registration / Ticket URL", name: register_url, widget: string, required: false }
+          - label: "Schedule"
+            name: schedule
+            widget: list
+            hint: "Add program items one by one"
+            fields:
+              - { label: "Time", name: time, widget: string, hint: "e.g. 6:00 PM" }
+              - { label: "Activity", name: activity, widget: string }
+              - { label: "Description", name: description, widget: text, required: false }
+
+  # ── ANNOUNCEMENTS / NEWS ───────────────────────────────────
+  - name: announcements
+    label: "Announcements"
+    label_singular: "Announcement"
+    folder: _data/announcements
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { label: "Title", name: title, widget: string }
+      - { label: "Date", name: date, widget: datetime }
+      - { label: "Summary", name: summary, widget: text, hint: "Short description shown in the list" }
+      - { label: "Body", name: body, widget: markdown }
+      - { label: "Published", name: published, widget: boolean, default: true }
+
+  # ── GALLERY ───────────────────────────────────────────────
+  - name: gallery
+    label: "Photo Gallery"
+    files:
+      - name: gallery
+        label: "Photos"
+        file: _data/gallery.json
+        fields:
+          - label: "Photos"
+            name: photos
+            widget: list
+            fields:
+              - { label: "Image", name: image, widget: image }
+              - { label: "Caption", name: caption, widget: string, required: false }
+              - { label: "Alt Text", name: alt, widget: string, hint: "Describe the image for accessibility" }
+
+  # ── SITE SETTINGS ─────────────────────────────────────────
+  - name: settings
+    label: "Site Settings"
+    files:
+      - name: general
+        label: "General Settings"
+        file: _data/settings.json
+        fields:
+          - { label: "Site Tagline", name: tagline, widget: string }
+          - { label: "Hero Description", name: hero_description, widget: text }
+          - { label: "Contact Email", name: email, widget: string }
+          - { label: "Instagram URL", name: instagram, widget: string, required: false }
+          - { label: "Facebook URL", name: facebook, widget: string, required: false }
