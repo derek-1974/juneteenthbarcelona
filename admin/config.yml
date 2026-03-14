@@ -44,22 +44,7 @@ collections:
       - { label: "Body", name: body, widget: markdown }
       - { label: "Published", name: published, widget: boolean, default: true }
 
-  # ── GALLERY ───────────────────────────────────────────────
-  - name: gallery
-    label: "Photo Gallery"
-    files:
-      - name: gallery
-        label: "Photos"
-        file: _data/gallery.json
-        fields:
-          - label: "Photos"
-            name: photos
-            widget: list
-            fields:
-              - { label: "Image", name: image, widget: image }
-              - { label: "Caption", name: caption, widget: string, required: false }
-              - { label: "Alt Text", name: alt, widget: string, hint: "Describe the image for accessibility" }
-
+  
   # ── SITE SETTINGS ─────────────────────────────────────────
   - name: settings
     label: "Site Settings"
@@ -73,8 +58,3 @@ collections:
           - { label: "Contact Email", name: email, widget: string }
           - { label: "Instagram URL", name: instagram, widget: string, required: false }
           - { label: "Facebook URL", name: facebook, widget: string, required: false }
-          - label: "Show Gallery in Navigation"
-            name: show_gallery_nav
-            widget: boolean
-            default: false
-            hint: "Toggle to show or hide the Gallery link in the site navigation. Turn on when you have photos to display."

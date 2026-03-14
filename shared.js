@@ -99,3 +99,57 @@ function googleTranslateElementInit() {
     autoDisplay: false
   }, 'google_translate_element');
 }
+
+// ── Fix mobile toggle aria-expanded ───────────────────────────
+const mobileToggle = document.querySelector('.nav-mobile-toggle');
+if (mobileToggle) {
+  mobileToggle.addEventListener('click', () => {
+    const expanded = mobileToggle.getAttribute('aria-expanded') === 'true';
+    mobileToggle.setAttribute('aria-expanded', String(!expanded));
+  });
+}
+
+// ── Custom cursor ──────────────────────────────────────────
+(function() {
+  const el = document.createElement('div');
+  el.className = 'cursor';
+  el.innerHTML = '<div class="cursor-dot"></div><div class="cursor-ring"></div>';
+  document.body.appendChild(el);
+
+  const dot  = el.querySelector('.cursor-dot');
+  const ring = el.querySelector('.cursor-ring');
+  let mx = -100, my = -100, rx = -100, ry = -100;
+  let hidden = false;
+
+  document.addEventListener('mousemove', e => {
+    mx = e.clientX; my = e.clientY;
+    if (hidden) { el.classList.remove('hidden'); hidden = false; }
+    dot.style.transform  = `translate(${mx}px, ${my}px) translate(-50%,-50%)`;
+  });
+
+  // Ring follows with slight lag
+  function animateRing() {
+    rx += (mx - rx) * 0.14;
+    ry += (my - ry) * 0.14;
+    ring.style.transform = `translate(${rx}px, ${ry}px) translate(-50%,-50%)`;
+    requestAnimationFrame(animateRing);
+  }
+  animateRing();
+
+  // Hover state on interactive elements
+  const hoverTargets = 'a, button, [role="button"], input, select, textarea, label, .page-nav-item, .wt-stop, .gallery-item, .share-btn, .lang-option';
+  document.addEventListener('mouseover', e => {
+    if (e.target.closest(hoverTargets)) el.classList.add('hovering');
+  });
+  document.addEventListener('mouseout', e => {
+    if (e.target.closest(hoverTargets)) el.classList.remove('hovering');
+  });
+
+  // Click state
+  document.addEventListener('mousedown', () => el.classList.add('clicking'));
+  document.addEventListener('mouseup',   () => el.classList.remove('clicking'));
+
+  // Hide when leaving window
+  document.addEventListener('mouseleave', () => { el.classList.add('hidden'); hidden = true; });
+  document.addEventListener('mouseenter', () => { el.classList.remove('hidden'); hidden = false; });
+})();

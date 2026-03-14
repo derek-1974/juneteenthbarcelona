@@ -2,6 +2,17 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+  <meta name="theme-color" content="#00693A">
+  <meta name="robots" content="index, follow">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta name="description" content="Get involved with Juneteenth Barcelona 2026 — volunteer, perform, sponsor, or attend. Contact us at barcelona@juneteenth.es.">
+  <meta name="keywords" content="Juneteenth Barcelona contact, volunteer Barcelona, sponsor Juneteenth Barcelona, African diaspora Barcelona">
+  <meta property="og:title" content="Get Involved — Juneteenth BCN">
+  <meta property="og:description" content="Volunteer, perform, sponsor, or attend Juneteenth Barcelona 2026.">
+  <meta property="og:url" content="https://dancing-lebkuchen-8348db.netlify.app/contact.html">
+  <meta property="og:type" content="website">
+  <link rel="canonical" href="https://dancing-lebkuchen-8348db.netlify.app/contact.html">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Contact — Juneteenth Barcelona</title>
 <link rel="stylesheet" href="shared.css">
@@ -77,12 +88,23 @@
   .contact-info { border-right: none; border-bottom: 1px solid var(--border); }
   .form-row { grid-template-columns: 1fr; }
 }
+
+/* ── SKIP TO CONTENT (accessibility) ── */
+.skip-link {
+  position: absolute; top: -100%; left: 1rem;
+  background: var(--black); color: white;
+  padding: 0.6rem 1.2rem; font-size: 0.82rem; font-weight: 600;
+  text-decoration: none; z-index: 9999;
+  transition: top 0.2s;
+}
+.skip-link:focus { top: 1rem; }
 </style>
 </head>
 <body>
+<a href="#main-content" class="skip-link">Skip to main content</a>
 
 <!-- NAV -->
-<nav>
+<nav aria-label="Main navigation" role="navigation">
   <a href="index.html" class="nav-logo">
     <img src="https://seekflag.com/wp-content/uploads/2022/01/Juneteenth-01-1.png" alt="Juneteenth flag" style="height:22px;width:auto;display:block;">
     <span class="nav-logo-text">Juneteenth BCN</span>
@@ -100,15 +122,16 @@
         <span class="lang-current">EN</span>
         <span class="lang-caret">▾</span>
       </button>
-      <div class="lang-dropdown">
-        <button class="lang-option" data-lang="en">English</button>
-        <button class="lang-option" data-lang="es">Español</button>
-        <button class="lang-option" data-lang="ca">Català</button>
+      <div class="lang-dropdown" role="menu" aria-label="Language options">
+        <button class="lang-option" role="menuitem" data-lang="en">English</button>
+        <button class="lang-option" role="menuitem" data-lang="es">Español</button>
+        <button class="lang-option" role="menuitem" data-lang="ca">Català</button>
       </div>
     </div>
-    <div class="nav-mobile-toggle"><span></span><span></span><span></span></div>
+    <button class="nav-mobile-toggle" aria-label="Toggle navigation menu" aria-expanded="false"><span></span><span></span><span></span></button>
   </div>
 </nav>
+<main id="main-content">
 
 <!-- HERO -->
 <div class="contact-hero">
@@ -120,7 +143,7 @@
 </div>
 
 <!-- CONTACT LAYOUT -->
-<div class="contact-layout">
+<div class="contact-layout" role="region" aria-label="Contact form and information">
 
   <!-- INFO -->
   <div class="contact-info reveal">
@@ -197,8 +220,9 @@
   </div>
 </div>
 
+</main>
 <!-- FOOTER -->
-<footer>
+<footer role="contentinfo" aria-label="Site footer">
   <div class="footer-top">
     <div class="footer-brand">
       <div class="footer-logo-wrap">
@@ -207,9 +231,9 @@
       </div>
       <p class="footer-tagline">Celebrating Black freedom, heritage, and community in Barcelona.</p>
     </div>
-    <div class="footer-col"><h5>Pages</h5><ul><li><a href="about.html">About Us</a></li><li><a href="event.html">The Event</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+    <div class="footer-col"><h5>Pages</h5><ul><li><a href="about.html">About Us</a></li><li><a href="event.html">The Event</a></li><li><a href="walking-tour/index.html">Walking Tour</a></li><li><a href="contact.html">Contact</a></li></ul></div>
 
-    <div class="footer-col"><h5>Contact</h5><ul><li><a href="mailto:barcelona@juneteenth.es">barcelona@juneteenth.es</a></li><li><a href="https://lafabrica-co.com/en/event-spaces/" target="_blank">La Fábrica &amp; Co</a></li></ul></div>
+    <div class="footer-col"><h5>Contact</h5><ul><li><a href="mailto:barcelona@juneteenth.es">barcelona@juneteenth.es</a></li></ul></div>
   </div>
   <div class="footer-bottom">
     <p>© 2026 Juneteenth Barcelona. Organized by volunteers with love.</p>

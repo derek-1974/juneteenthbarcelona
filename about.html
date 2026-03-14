@@ -2,6 +2,23 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+  <meta name="theme-color" content="#00693A">
+  <meta name="robots" content="index, follow">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta name="description" content="Learn about the Juneteenth Barcelona committee — volunteers dedicated to connecting and inspiring Barcelona's African diaspora and raising our collective visibility in the city.">
+  <meta name="keywords" content="Juneteenth Barcelona about, African diaspora committee Barcelona, Black community Barcelona, Juneteenth history">
+  <meta property="og:title" content="About — Juneteenth BCN">
+  <meta property="og:description" content="Volunteers dedicated to connecting and inspiring Barcelona's African diaspora.">
+  <meta property="og:image" content="https://dancing-lebkuchen-8348db.netlify.app/images/barcelona-hero.jpg">
+  <meta property="og:image:width" content="1920">
+  <meta property="og:image:height" content="1280">
+  <meta property="og:url" content="https://dancing-lebkuchen-8348db.netlify.app/about.html">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="About — Juneteenth BCN">
+  <meta name="twitter:description" content="Volunteers dedicated to connecting and inspiring Barcelona's African diaspora.">
+  <link rel="canonical" href="https://dancing-lebkuchen-8348db.netlify.app/about.html">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>About — Juneteenth Barcelona</title>
 <link rel="stylesheet" href="shared.css">
@@ -132,12 +149,23 @@
   .team-grid { grid-template-columns: 1fr 1fr; gap: 1.5rem; }
   .constellation-grid { grid-template-columns: 1fr 1fr; }
 }
+
+/* ── SKIP TO CONTENT (accessibility) ── */
+.skip-link {
+  position: absolute; top: -100%; left: 1rem;
+  background: var(--black); color: white;
+  padding: 0.6rem 1.2rem; font-size: 0.82rem; font-weight: 600;
+  text-decoration: none; z-index: 9999;
+  transition: top 0.2s;
+}
+.skip-link:focus { top: 1rem; }
 </style>
 </head>
 <body>
+<a href="#main-content" class="skip-link">Skip to main content</a>
 
 <!-- NAV -->
-<nav>
+<nav aria-label="Main navigation" role="navigation">
   <a href="index.html" class="nav-logo">
     <img src="https://seekflag.com/wp-content/uploads/2022/01/Juneteenth-01-1.png" alt="Juneteenth flag" style="height:22px;width:auto;display:block;">
     <span class="nav-logo-text">Juneteenth BCN</span>
@@ -155,18 +183,19 @@
         <span class="lang-current">EN</span>
         <span class="lang-caret">▾</span>
       </button>
-      <div class="lang-dropdown">
-        <button class="lang-option" data-lang="en">English</button>
-        <button class="lang-option" data-lang="es">Español</button>
-        <button class="lang-option" data-lang="ca">Català</button>
+      <div class="lang-dropdown" role="menu" aria-label="Language options">
+        <button class="lang-option" role="menuitem" data-lang="en">English</button>
+        <button class="lang-option" role="menuitem" data-lang="es">Español</button>
+        <button class="lang-option" role="menuitem" data-lang="ca">Català</button>
       </div>
     </div>
-    <div class="nav-mobile-toggle"><span></span><span></span><span></span></div>
+    <button class="nav-mobile-toggle" aria-label="Toggle navigation menu" aria-expanded="false"><span></span><span></span><span></span></button>
   </div>
 </nav>
+<main id="main-content">
 
 <!-- PAGE HERO -->
-<section class="page-hero">
+<section class="page-hero" aria-label="Page header">
   <div class="page-hero-bg"></div>
   <div class="page-hero-inner">
     <div class="section-tag light">About Us</div>
@@ -191,7 +220,7 @@
 </section>
 
 <!-- STORY -->
-<section class="story">
+<section class="story" aria-label="Our story">
   <div class="story-left reveal">
     <div class="section-tag light">Our Story</div>
     <h2 class="story-title">Rooted in community. Grown from purpose.</h2>
@@ -208,7 +237,7 @@
 </section>
 
 <!-- GOALS -->
-<section class="goals">
+<section class="goals" aria-label="Our goals">
   <div class="goals-header reveal">
     <div>
       <div class="section-tag">Three Goals</div>
@@ -236,7 +265,7 @@
 </section>
 
 <!-- COMMITTEE -->
-<section class="committee-section">
+<section class="committee-section" aria-label="Committee members">
   <div class="committee-header reveal">
     <div>
       <div class="section-tag">The Team</div>
@@ -246,24 +275,59 @@
   </div>
   <div class="team-grid reveal">
     <div class="team-member">
-      <div class="team-photo-placeholder"><span>JB</span></div>
-      <div class="team-name">Committee Lead</div>
+      <div class="team-photo-placeholder"><span>DL</span></div>
+      <div class="team-name">Derek Lumpkins</div>
+      <div class="team-role">Co-Chair</div>
+    </div>
+    <div class="team-member">
+      <div class="team-photo-placeholder"><span>KH</span></div>
+      <div class="team-name">Kevin Hawkins</div>
+      <div class="team-role">Co-Chair</div>
+    </div>
+    <div class="team-member">
+      <div class="team-photo-placeholder"><span>P</span></div>
+      <div class="team-name">Patrick</div>
       <div class="team-role">Organizer</div>
     </div>
     <div class="team-member">
-      <div class="team-photo-placeholder"><span>JB</span></div>
-      <div class="team-name">Events Lead</div>
-      <div class="team-role">Programming</div>
+      <div class="team-photo-placeholder"><span>N</span></div>
+      <div class="team-name">Nigel</div>
+      <div class="team-role">Organizer</div>
     </div>
     <div class="team-member">
-      <div class="team-photo-placeholder"><span>JB</span></div>
-      <div class="team-name">Community Lead</div>
-      <div class="team-role">Outreach</div>
+      <div class="team-photo-placeholder"><span>M</span></div>
+      <div class="team-name">Margo</div>
+      <div class="team-role">Organizer</div>
     </div>
     <div class="team-member">
-      <div class="team-photo-placeholder"><span>JB</span></div>
-      <div class="team-name">Creative Lead</div>
-      <div class="team-role">Design &amp; Brand</div>
+      <div class="team-photo-placeholder"><span>C</span></div>
+      <div class="team-name">Cindy</div>
+      <div class="team-role">Organizer</div>
+    </div>
+    <div class="team-member">
+      <div class="team-photo-placeholder"><span>K</span></div>
+      <div class="team-name">Karen</div>
+      <div class="team-role">Organizer</div>
+    </div>
+    <div class="team-member">
+      <div class="team-photo-placeholder"><span>A</span></div>
+      <div class="team-name">Alyssa</div>
+      <div class="team-role">Organizer</div>
+    </div>
+    <div class="team-member">
+      <div class="team-photo-placeholder"><span>E</span></div>
+      <div class="team-name">Erik</div>
+      <div class="team-role">Organizer</div>
+    </div>
+    <div class="team-member">
+      <div class="team-photo-placeholder"><span>S</span></div>
+      <div class="team-name">Selam</div>
+      <div class="team-role">Organizer</div>
+    </div>
+    <div class="team-member">
+      <div class="team-photo-placeholder"><span>NK</span></div>
+      <div class="team-name">Nekeia</div>
+      <div class="team-role">Organizer</div>
     </div>
   </div>
   <p style="font-size:0.8rem;color:var(--mid);margin-top:2rem;font-style:italic;">Add your team members via the CMS admin panel.</p>
@@ -295,8 +359,9 @@
   <a href="contact.html" class="btn btn-white">Get in Touch</a>
 </div>
 
+</main>
 <!-- FOOTER -->
-<footer>
+<footer role="contentinfo" aria-label="Site footer">
   <div class="footer-top">
     <div class="footer-brand">
       <div class="footer-logo-wrap">
@@ -305,9 +370,9 @@
       </div>
       <p class="footer-tagline">Celebrating Black freedom, heritage, and community in Barcelona.</p>
     </div>
-    <div class="footer-col"><h5>Pages</h5><ul><li><a href="about.html">About Us</a></li><li><a href="event.html">The Event</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+    <div class="footer-col"><h5>Pages</h5><ul><li><a href="about.html">About Us</a></li><li><a href="event.html">The Event</a></li><li><a href="walking-tour/index.html">Walking Tour</a></li><li><a href="contact.html">Contact</a></li></ul></div>
 
-    <div class="footer-col"><h5>Contact</h5><ul><li><a href="mailto:barcelona@juneteenth.es">barcelona@juneteenth.es</a></li><li><a href="https://lafabrica-co.com/en/event-spaces/" target="_blank">La Fábrica &amp; Co</a></li></ul></div>
+    <div class="footer-col"><h5>Contact</h5><ul><li><a href="mailto:barcelona@juneteenth.es">barcelona@juneteenth.es</a></li></ul></div>
   </div>
   <div class="footer-bottom">
     <p>© 2026 Juneteenth Barcelona. Organized by volunteers with love.</p>

@@ -2,6 +2,23 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+  <meta name="theme-color" content="#00693A">
+  <meta name="robots" content="index, follow">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta name="description" content="A timeline of the political upheavals in Spain from 1898 to 1936 that drew Black American intellectuals and volunteers to Barcelona.">
+  <meta name="keywords" content="Juneteenth Barcelona walking tour, Black history Barcelona, African diaspora Barcelona, Barcelona history tour">
+  <meta property="og:title" content="Countdown to Civil War · Walking Tour — Juneteenth BCN">
+  <meta property="og:description" content="A timeline of the political upheavals in Spain from 1898 to 1936 that drew Black American intellectuals and volunteers to Barcelona.">
+  <meta property="og:image" content="https://dancing-lebkuchen-8348db.netlify.app/images/barcelona-hero.jpg">
+  <meta property="og:image:width" content="1920">
+  <meta property="og:image:height" content="1280">
+  <meta property="og:url" content="https://dancing-lebkuchen-8348db.netlify.app/walking-tour/countdown-to-civil-war.html">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Countdown to Civil War · Walking Tour — Juneteenth BCN">
+  <meta name="twitter:description" content="A timeline of the political upheavals in Spain from 1898 to 1936 that drew Black American intellectuals and volunteers to Barcelona.">
+  <link rel="canonical" href="https://dancing-lebkuchen-8348db.netlify.app/walking-tour/countdown-to-civil-war.html">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Countdown to Civil War — Juneteenth Barcelona</title>
 <link rel="stylesheet" href="../shared.css">
@@ -121,10 +138,21 @@
   .tour-meta { gap: 1rem; }
   .timeline-item { grid-template-columns: 60px 1fr; gap: 1rem; }
 }
+
+/* ── SKIP TO CONTENT (accessibility) ── */
+.skip-link {
+  position: absolute; top: -100%; left: 1rem;
+  background: var(--black); color: white;
+  padding: 0.6rem 1.2rem; font-size: 0.82rem; font-weight: 600;
+  text-decoration: none; z-index: 9999;
+  transition: top 0.2s;
+}
+.skip-link:focus { top: 1rem; }
 </style>
 </head>
 <body>
-<nav>
+<a href="#main-content" class="skip-link">Skip to main content</a>
+<nav aria-label="Main navigation" role="navigation">
   <a href="../index.html" class="nav-logo">
     <img src="https://seekflag.com/wp-content/uploads/2022/01/Juneteenth-01-1.png" alt="Juneteenth flag" style="height:22px;width:auto;display:block;">
     <span class="nav-logo-text">Juneteenth BCN</span>
@@ -142,17 +170,18 @@
         <span class="lang-current">EN</span>
         <span class="lang-caret">▾</span>
       </button>
-      <div class="lang-dropdown">
-        <button class="lang-option" data-lang="en">English</button>
-        <button class="lang-option" data-lang="es">Español</button>
-        <button class="lang-option" data-lang="ca">Català</button>
+      <div class="lang-dropdown" role="menu" aria-label="Language options">
+        <button class="lang-option" role="menuitem" data-lang="en">English</button>
+        <button class="lang-option" role="menuitem" data-lang="es">Español</button>
+        <button class="lang-option" role="menuitem" data-lang="ca">Català</button>
       </div>
     </div>
-    <div class="nav-mobile-toggle"><span></span><span></span><span></span></div>
+    <button class="nav-mobile-toggle" aria-label="Toggle navigation menu" aria-expanded="false"><span></span><span></span><span></span></button>
   </div>
 </nav>
-<section class="tour-hero">
-  <div class="tour-hero-bg" style="background-image:url('https://images.pexels.com/photos/3573383/pexels-photo-3573383.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1280&fit=crop')"></div>
+<main id="main-content">
+<section class="tour-hero" aria-label="Page header">
+  <div class="tour-hero-bg" style="background-image:url('https://images.pexels.com/photos/164455/pexels-photo-164455.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1280&fit=crop')"></div>
   <div class="tour-hero-body">
     <div class="section-tag light">Walking Tour · Barcelona</div>
     <h1>Countdown to Civil War</h1>
@@ -195,7 +224,7 @@
 <p style="margin-top:3rem;"><a href="spanish-civil-war.html" class="btn btn-dark">Next: Spanish Civil War →</a></p>
 
 </div>
-<footer>
+<footer role="contentinfo" aria-label="Site footer">
   <div class="footer-top">
     <div class="footer-brand">
       <div class="footer-logo-wrap">
