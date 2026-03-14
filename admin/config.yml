@@ -16,7 +16,7 @@ collections:
         file: _data/event.json
         fields:
           - { label: "Event Title", name: title, widget: string, default: "Juneteenth Barcelona" }
-          - { label: "Date", name: date, widget: string, hint: "e.g. Friday, June 20, 2026" }
+          - { label: "Date", name: date, widget: string, hint: "e.g. Saturday, June 20, 2026" }
           - { label: "Venue Name", name: venue_name, widget: string }
           - { label: "Venue Address", name: venue_address, widget: string }
           - { label: "Venue URL", name: venue_url, widget: string }

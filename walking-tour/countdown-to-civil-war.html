@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Countdown to Civil War — Juneteenth Barcelona</title>
+<link rel="stylesheet" href="../shared.css">
+<style>
+.tour-hero {
+  padding-top: var(--nav-h); position: relative; overflow: hidden;
+  min-height: 52vh; display: flex; flex-direction: column; justify-content: flex-end;
+}
+.tour-hero-bg {
+  position: absolute; inset: 0;
+  background: url('https://images.pexels.com/photos/3573383/pexels-photo-3573383.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1280&fit=crop') center/cover no-repeat;
+}
+.tour-hero-bg::after {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(13,13,13,0.65) 0%, rgba(13,13,13,0.2) 60%, transparent 100%);
+}
+.tour-hero-body { position: relative; z-index: 1; padding: 0 5vw 3.5rem; }
+.tour-hero-body h1 {
+  font-family: 'Syne', sans-serif; font-weight: 800;
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  line-height: 0.95; letter-spacing: -0.03em; color: white;
+  opacity: 0; animation: fadeUp 0.8s 0.1s forwards;
+}
+.tour-subnav {
+  background: var(--black); overflow-x: auto; -webkit-overflow-scrolling: touch;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  position: sticky; top: var(--nav-h); z-index: 100;
+}
+.tour-subnav-inner {
+  display: flex; padding: 0 5vw; min-width: max-content;
+}
+.tour-subnav a {
+  color: rgba(255,255,255,0.4); text-decoration: none;
+  font-size: 0.68rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase;
+  padding: 1rem 1.5rem; border-bottom: 2px solid transparent;
+  transition: color 0.2s, border-color 0.2s; white-space: nowrap;
+}
+.tour-subnav a:hover { color: white; }
+.tour-subnav a.active { color: var(--gold); border-bottom-color: var(--gold); }
+.tour-body {
+  max-width: 820px; margin: 0 auto;
+  padding: 5rem 5vw 7rem;
+}
+.tour-body h2 {
+  font-family: 'Syne', sans-serif; font-weight: 800;
+  font-size: clamp(1.6rem, 3vw, 2.4rem);
+  letter-spacing: -0.02em; line-height: 1.05;
+  margin: 3rem 0 1rem; color: var(--black);
+}
+.tour-body h3 {
+  font-family: 'Syne', sans-serif; font-weight: 700;
+  font-size: clamp(1rem, 2vw, 1.3rem); letter-spacing: -0.01em;
+  margin: 2.5rem 0 0.6rem; color: var(--black);
+}
+.tour-body h4 {
+  font-size: 0.72rem; font-weight: 600; letter-spacing: 0.2em;
+  text-transform: uppercase; color: var(--mid); margin: 2rem 0 0.4rem;
+}
+.tour-body p {
+  font-size: 1rem; line-height: 1.85; color: rgba(13,13,13,0.72);
+  margin-bottom: 1.4rem;
+}
+.tour-body p strong { color: var(--black); font-weight: 600; }
+.tour-body a { color: var(--red); text-decoration: none; border-bottom: 1px solid rgba(200,16,46,0.25); transition: border-color 0.2s; }
+.tour-body a:hover { border-color: var(--red); }
+.tour-body blockquote {
+  border-left: 3px solid var(--gold); margin: 2rem 0;
+  padding: 1rem 1.5rem;
+  background: rgba(200,146,10,0.04);
+  font-size: 0.97rem; line-height: 1.8; color: rgba(13,13,13,0.7);
+  font-style: italic;
+}
+.stop-num {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 36px; height: 36px;
+  background: var(--black); color: var(--gold);
+  font-family: 'Syne', sans-serif; font-weight: 800; font-size: 0.85rem;
+  flex-shrink: 0; margin-bottom: 0.5rem;
+}
+.stop-block {
+  border-top: 2px solid var(--black); padding: 2rem 0 1rem; margin-top: 3rem;
+}
+.stop-address {
+  font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase;
+  color: var(--mid); margin-bottom: 1rem;
+}
+.activity-box {
+  background: rgba(200,16,46,0.05); border: 1px solid rgba(200,16,46,0.15);
+  padding: 1.2rem 1.5rem; margin: 2rem 0;
+  font-size: 0.88rem; color: rgba(13,13,13,0.7); line-height: 1.7;
+}
+.activity-box strong { color: var(--red); font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; display: block; margin-bottom: 0.3rem; }
+.tour-meta {
+  display: flex; gap: 2rem; flex-wrap: wrap;
+  padding: 1.5rem 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+  margin-bottom: 3rem;
+}
+.tour-meta-item { font-size: 0.82rem; color: rgba(13,13,13,0.6); }
+.tour-meta-item strong { color: var(--black); font-weight: 600; display: block; font-size: 0.68rem; letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 0.2rem; }
+.timeline-grid {
+  display: grid; gap: 0;
+  border-top: 1px solid var(--border);
+  margin: 2rem 0;
+}
+.timeline-item {
+  display: grid; grid-template-columns: 80px 1fr;
+  gap: 1.5rem; padding: 1.5rem 0;
+  border-bottom: 1px solid var(--border);
+  align-items: start;
+}
+.timeline-year {
+  font-family: 'Syne', sans-serif; font-weight: 800;
+  font-size: 1.3rem; color: var(--gold); line-height: 1;
+}
+.timeline-text { font-size: 0.9rem; line-height: 1.75; color: rgba(13,13,13,0.68); }
+@media (max-width: 600px) {
+  .tour-meta { gap: 1rem; }
+  .timeline-item { grid-template-columns: 60px 1fr; gap: 1rem; }
+}
+</style>
+</head>
+<body>
+<nav>
+  <a href="../index.html" class="nav-logo">
+    <img src="https://seekflag.com/wp-content/uploads/2022/01/Juneteenth-01-1.png" alt="Juneteenth flag" style="height:22px;width:auto;display:block;">
+    <span class="nav-logo-text">Juneteenth Barcelona</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="../about.html">About</a></li>
+    <li><a href="../event.html">Event</a></li>
+    <li><a href="index.html">Walking Tour</a></li>
+    <li class="nav-gallery-link"><a href="../gallery.html">Gallery</a></li>
+    <li><a href="../contact.html">Contact</a></li>
+  </ul>
+  <div class="nav-right">
+    <div class="lang-picker">
+      <button class="lang-trigger" aria-label="Select language">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        <span class="lang-current">EN</span>
+        <span class="lang-caret">▾</span>
+      </button>
+      <div class="lang-dropdown">
+        <button class="lang-option" data-lang="en">English</button>
+        <button class="lang-option" data-lang="es">Español</button>
+        <button class="lang-option" data-lang="ca">Català</button>
+      </div>
+    </div>
+    <div class="nav-mobile-toggle"><span></span><span></span><span></span></div>
+  </div>
+</nav>
+<section class="tour-hero">
+  <div class="tour-hero-bg" style="background-image:url('https://images.pexels.com/photos/3573383/pexels-photo-3573383.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1280&fit=crop')"></div>
+  <div class="tour-hero-body">
+    <div class="section-tag light">Walking Tour · Barcelona</div>
+    <h1>Countdown to Civil War</h1>
+  </div>
+</section>
+<div class="tour-subnav"><div class="tour-subnav-inner"><a href="index.html">Start</a><a href="spanish-slave-trade.html">Slave Trade</a><a href="countdown-to-civil-war.html" class="active">Pre-War</a><a href="spanish-civil-war.html">Civil War</a><a href="el-raval.html">El Raval</a><a href="post-war-intellectuals.html">Post-War</a></div></div>
+<div class="tour-body">
+
+<p>The following timeline traces the political upheavals in Spain that set the stage for the Civil War — a conflict that drew Black American intellectuals and volunteers to Barcelona in remarkable numbers.</p>
+
+<div class="timeline-grid">
+  <div class="timeline-item">
+    <div class="timeline-year">1898</div>
+    <div class="timeline-text">The Spanish navy was badly defeated by the US navy in a war involving the last important imperial colonies: Cuba, Puerto Rico, and the Philippines. The humiliating defeat, known as <em>el Desastre</em>, revealed the economic, social, and military weakness of the country.</div>
+  </div>
+  <div class="timeline-item">
+    <div class="timeline-year">1909</div>
+    <div class="timeline-text">A week of violence took place in Barcelona — the <em>Semana Trágica</em> (Tragic Week). Socialists and Republicans called a strike to protest the massacre of Spanish soldiers in Morocco. The strike turned violent and some churches and convents were set on fire. Harshly dealt with by the army and government.</div>
+  </div>
+  <div class="timeline-item">
+    <div class="timeline-year">1921</div>
+    <div class="timeline-text">In a massive massacre in Morocco, 4,000 Rif native rebels killed 15,000 Spanish soldiers in the battle of Annual.</div>
+  </div>
+  <div class="timeline-item">
+    <div class="timeline-year">1923</div>
+    <div class="timeline-text">General Miguel Primo de Rivera staged a coup, with the king's blessing, installing a 'soft' dictatorship. The rebellions in Morocco were cruelly suppressed, with mustard gas used against the rebels. These wars were the training ground for officers including future dictator Francisco Franco.</div>
+  </div>
+  <div class="timeline-item">
+    <div class="timeline-year">1931</div>
+    <div class="timeline-text">Republican parties won in most big cities in local elections. The king fled the country and the Second Republic was declared on April 14. The Republic raised hopes for modernity and social justice — but was interpreted as a threat by industrialists, landowners, the Church, and high-ranking military officers.</div>
+  </div>
+  <div class="timeline-item">
+    <div class="timeline-year">1936</div>
+    <div class="timeline-text">The <em>Frente Popular</em> (Popular Front) won the election — a more radical left-wing coalition, supported by the Anarchist union CNT. The right found it impossible to tolerate new left-wing policies. On July 17, the Spanish Army of Africa arose in Morocco. The country split in two: Republican and Nationalist. The Spanish Civil War began.</div>
+  </div>
+</div>
+
+<p style="font-size:0.78rem;color:var(--mid);">Timeline <a href="https://pressbooks.pub/spainthenationinitslabyrinth/chapter/chapter-2-from-colonial-power-to-republic/">source</a></p>
+
+<p style="margin-top:3rem;"><a href="spanish-civil-war.html" class="btn btn-dark">Next: Spanish Civil War →</a></p>
+
+</div>
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div class="footer-logo-wrap">
+        <img src="https://seekflag.com/wp-content/uploads/2022/01/Juneteenth-01-1.png" alt="Juneteenth flag" style="height:16px;width:auto;display:block;">
+        <span class="footer-logo-text">Juneteenth Barcelona</span>
+      </div>
+      <p class="footer-tagline">Celebrating Black freedom, heritage, and community in Barcelona.</p>
+    </div>
+    <div class="footer-col"><h5>Pages</h5><ul><li><a href="../about.html">About Us</a></li><li><a href="../event.html">The Event</a></li><li><a href="index.html">Walking Tour</a></li><li><a href="../contact.html">Contact</a></li></ul></div>
+    <div class="footer-col"><h5>Contact</h5><ul><li><a href="mailto:barcelona@juneteenth.es">barcelona@juneteenth.es</a></li></ul></div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 Juneteenth Barcelona. Organized by volunteers with love.</p>
+    <div class="footer-flag"><span style="background:#C8102E"></span><span style="background:#333"></span><span style="background:#00693A"></span></div>
+  </div>
+</footer>
+<div id="google_translate_element"></div>
+<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+<script src="../shared.js"></script>
+</body>
+</html>

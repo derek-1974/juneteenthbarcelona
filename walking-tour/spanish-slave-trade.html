@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Spanish Slave Trade — Juneteenth Barcelona</title>
+<link rel="stylesheet" href="../shared.css">
+<style>
+.tour-hero {
+  padding-top: var(--nav-h); position: relative; overflow: hidden;
+  min-height: 52vh; display: flex; flex-direction: column; justify-content: flex-end;
+}
+.tour-hero-bg {
+  position: absolute; inset: 0;
+  background: url('https://images.pexels.com/photos/236452/pexels-photo-236452.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1280&fit=crop') center/cover no-repeat;
+}
+.tour-hero-bg::after {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(13,13,13,0.65) 0%, rgba(13,13,13,0.2) 60%, transparent 100%);
+}
+.tour-hero-body { position: relative; z-index: 1; padding: 0 5vw 3.5rem; }
+.tour-hero-body h1 {
+  font-family: 'Syne', sans-serif; font-weight: 800;
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  line-height: 0.95; letter-spacing: -0.03em; color: white;
+  opacity: 0; animation: fadeUp 0.8s 0.1s forwards;
+}
+.tour-subnav {
+  background: var(--black); overflow-x: auto; -webkit-overflow-scrolling: touch;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  position: sticky; top: var(--nav-h); z-index: 100;
+}
+.tour-subnav-inner {
+  display: flex; padding: 0 5vw; min-width: max-content;
+}
+.tour-subnav a {
+  color: rgba(255,255,255,0.4); text-decoration: none;
+  font-size: 0.68rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase;
+  padding: 1rem 1.5rem; border-bottom: 2px solid transparent;
+  transition: color 0.2s, border-color 0.2s; white-space: nowrap;
+}
+.tour-subnav a:hover { color: white; }
+.tour-subnav a.active { color: var(--gold); border-bottom-color: var(--gold); }
+.tour-body {
+  max-width: 820px; margin: 0 auto;
+  padding: 5rem 5vw 7rem;
+}
+.tour-body h2 {
+  font-family: 'Syne', sans-serif; font-weight: 800;
+  font-size: clamp(1.6rem, 3vw, 2.4rem);
+  letter-spacing: -0.02em; line-height: 1.05;
+  margin: 3rem 0 1rem; color: var(--black);
+}
+.tour-body h3 {
+  font-family: 'Syne', sans-serif; font-weight: 700;
+  font-size: clamp(1rem, 2vw, 1.3rem); letter-spacing: -0.01em;
+  margin: 2.5rem 0 0.6rem; color: var(--black);
+}
+.tour-body h4 {
+  font-size: 0.72rem; font-weight: 600; letter-spacing: 0.2em;
+  text-transform: uppercase; color: var(--mid); margin: 2rem 0 0.4rem;
+}
+.tour-body p {
+  font-size: 1rem; line-height: 1.85; color: rgba(13,13,13,0.72);
+  margin-bottom: 1.4rem;
+}
+.tour-body p strong { color: var(--black); font-weight: 600; }
+.tour-body a { color: var(--red); text-decoration: none; border-bottom: 1px solid rgba(200,16,46,0.25); transition: border-color 0.2s; }
+.tour-body a:hover { border-color: var(--red); }
+.tour-body blockquote {
+  border-left: 3px solid var(--gold); margin: 2rem 0;
+  padding: 1rem 1.5rem;
+  background: rgba(200,146,10,0.04);
+  font-size: 0.97rem; line-height: 1.8; color: rgba(13,13,13,0.7);
+  font-style: italic;
+}
+.stop-num {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 36px; height: 36px;
+  background: var(--black); color: var(--gold);
+  font-family: 'Syne', sans-serif; font-weight: 800; font-size: 0.85rem;
+  flex-shrink: 0; margin-bottom: 0.5rem;
+}
+.stop-block {
+  border-top: 2px solid var(--black); padding: 2rem 0 1rem; margin-top: 3rem;
+}
+.stop-address {
+  font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase;
+  color: var(--mid); margin-bottom: 1rem;
+}
+.activity-box {
+  background: rgba(200,16,46,0.05); border: 1px solid rgba(200,16,46,0.15);
+  padding: 1.2rem 1.5rem; margin: 2rem 0;
+  font-size: 0.88rem; color: rgba(13,13,13,0.7); line-height: 1.7;
+}
+.activity-box strong { color: var(--red); font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; display: block; margin-bottom: 0.3rem; }
+.tour-meta {
+  display: flex; gap: 2rem; flex-wrap: wrap;
+  padding: 1.5rem 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+  margin-bottom: 3rem;
+}
+.tour-meta-item { font-size: 0.82rem; color: rgba(13,13,13,0.6); }
+.tour-meta-item strong { color: var(--black); font-weight: 600; display: block; font-size: 0.68rem; letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 0.2rem; }
+.timeline-grid {
+  display: grid; gap: 0;
+  border-top: 1px solid var(--border);
+  margin: 2rem 0;
+}
+.timeline-item {
+  display: grid; grid-template-columns: 80px 1fr;
+  gap: 1.5rem; padding: 1.5rem 0;
+  border-bottom: 1px solid var(--border);
+  align-items: start;
+}
+.timeline-year {
+  font-family: 'Syne', sans-serif; font-weight: 800;
+  font-size: 1.3rem; color: var(--gold); line-height: 1;
+}
+.timeline-text { font-size: 0.9rem; line-height: 1.75; color: rgba(13,13,13,0.68); }
+@media (max-width: 600px) {
+  .tour-meta { gap: 1rem; }
+  .timeline-item { grid-template-columns: 60px 1fr; gap: 1rem; }
+}
+</style>
+</head>
+<body>
+<nav>
+  <a href="../index.html" class="nav-logo">
+    <img src="https://seekflag.com/wp-content/uploads/2022/01/Juneteenth-01-1.png" alt="Juneteenth flag" style="height:22px;width:auto;display:block;">
+    <span class="nav-logo-text">Juneteenth Barcelona</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="../about.html">About</a></li>
+    <li><a href="../event.html">Event</a></li>
+    <li><a href="index.html">Walking Tour</a></li>
+    <li class="nav-gallery-link"><a href="../gallery.html">Gallery</a></li>
+    <li><a href="../contact.html">Contact</a></li>
+  </ul>
+  <div class="nav-right">
+    <div class="lang-picker">
+      <button class="lang-trigger" aria-label="Select language">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        <span class="lang-current">EN</span>
+        <span class="lang-caret">▾</span>
+      </button>
+      <div class="lang-dropdown">
+        <button class="lang-option" data-lang="en">English</button>
+        <button class="lang-option" data-lang="es">Español</button>
+        <button class="lang-option" data-lang="ca">Català</button>
+      </div>
+    </div>
+    <div class="nav-mobile-toggle"><span></span><span></span><span></span></div>
+  </div>
+</nav>
+<section class="tour-hero">
+  <div class="tour-hero-bg" style="background-image:url('https://images.pexels.com/photos/236452/pexels-photo-236452.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1280&fit=crop')"></div>
+  <div class="tour-hero-body">
+    <div class="section-tag light">Walking Tour · Barcelona</div>
+    <h1>Spanish Slave Trade</h1>
+  </div>
+</section>
+<div class="tour-subnav"><div class="tour-subnav-inner"><a href="index.html">Start</a><a href="spanish-slave-trade.html" class="active">Slave Trade</a><a href="countdown-to-civil-war.html">Pre-War</a><a href="spanish-civil-war.html">Civil War</a><a href="el-raval.html">El Raval</a><a href="post-war-intellectuals.html">Post-War</a></div></div>
+<div class="tour-body">
+
+<p>An <a href="https://www.internationaleonline.org/contributions/black-archives-episode-ii-jazz-and-the-absence-of-black-representation/generate-pdf">estimated</a> two million enslaved people lived in Spain between 1450 and 1750, the majority of whom were Black. Ownership of enslaved people was a mark of status and was widespread, especially in urban centers. From the 15th to the 17th century there were Black communities in Spain, including Barcelona — formed by enslaved people, mostly Africans, who were not legally recognized as people, but whose presence left an indelible mark on the cultural landscape.</p>
+
+<p>Christopher Columbus' first voyage sailed from Palos, Spain in August 1492. He returned in 1493 and <a href="https://www.britannica.com/biography/Christopher-Columbus/The-second-and-third-voyages">displayed</a> gold, parrots, spices, and human captives to King Ferdinand II of Aragon and Queen Isabella I of Castile in Barcelona.</p>
+
+<p>Spain began to trade <a href="https://www.rtve.es/noticias/20200119/esclavitud-espana-episodio-oculto-nuestra-historia/1995828.shtml">enslaved</a> people in the 15th century, with this trade reaching its peak in the 16th century. Friar Bartolomé de las Casas argued in 1516 that white and black slaves should be imported to replace dying Native American laborers — a preference that led to the development of the Spanish Atlantic Slave Trade.</p>
+
+<p>In the 18th and 19th centuries, merchants who sailed to make their fortune in Spain's colonies invested in railroads, urban infrastructure, and Catalan Art Nouveau. In the 19th century, the port of Barcelona was a place of departure for slave ships. A large number of merchants and slave owners from Cuba and Puerto Rico settled in Barcelona, investing their capital in the Catalan economy.</p>
+
+<p>In 1817 Spain signed a <a href="https://euideas.eui.eu/the-end-of-self-delusion-challenging-slaverys-heritage-in-spain-and-catalonia">treaty</a> with the United Kingdom abolishing the transatlantic slave trade. However, the arrival of new enslaved people to Spanish America continued until late in the 19th century. Cuba was the last colony to abolish slavery in 1886.</p>
+
+<div class="activity-box"><strong>Discussion</strong>Discuss the implications of exploration and extraction on indigenous and enslaved populations.</div>
+
+<h2>Stops: 15th–19th Centuries</h2>
+
+<div class="stop-block">
+  <div class="stop-num">1</div>
+  <h3>Xifré House</h3>
+  <div class="stop-address">Passeig d'Isabel II, 14</div>
+  <p>Josep Xifré i Casas accumulated his capital in Cuba and reinvested it in New York. In 1830 he acquired the land where he built his house a decade later. The <a href="http://www.memoriabcn.cat/llegats_esclavatge/en/#im4">building</a> is known for its portico. Sometimes missed are the numerous allegorical reliefs on its façade, including an African, an Indian, symbols of commerce and navigation, images of children holding crops, and medallions of colonizers and conquistadors.</p>
+</div>
+
+<div class="stop-block">
+  <div class="stop-num">2</div>
+  <h3>Llotja de Mar</h3>
+  <div class="stop-address">Passeig d'Isabel II, 11</div>
+  <p>This <a href="http://www.memoriabcn.cat/llegats_esclavatge/en/#im4">chamber</a> of maritime commerce was also the location of the founding of the Spanish-Overseas Circle in 1871, with Joan Güell and Antonio López as president and vice president, respectively. In 1873, it was the birthplace of the Liga Nacional, an organization opposed to the abolition of slavery in Puerto Rico.</p>
+</div>
+
+<div class="stop-block">
+  <div class="stop-num">3</div>
+  <h3>Plaça Idrissa Diallo</h3>
+  <p>A <a href="http://www.memoriabcn.cat/llegats_esclavatge/en/#im4">monument</a> to Antonio López i López was erected in 1884. He founded the Transatlantic Company of Barcelona and was given the title of Marquee of Comillas. The original statue was torn down in 1936 and the statue of Lopez was reinstated by Frederic Marès but removed again in 2018 for his relationship with slavery. The plaza was renamed to honor Idrissa Diallo, a young Guinean migrant who died in custody in Barcelona in 2011.</p>
+</div>
+
+<div class="stop-block">
+  <div class="stop-num">4</div>
+  <h3>Hispano Colonial Bank</h3>
+  <div class="stop-address">Carrer Ample, 3</div>
+  <p>Created in 1876, with Antonio López i López as its main founder and first president. This institution channeled investor funds to help Spain fight the Ten Years' War in Cuba (1868–1878), an unsuccessful nationalist rise against Spanish rule.</p>
+</div>
+
+<div class="stop-block">
+  <div class="stop-num">5</div>
+  <h3>Columbus Monument</h3>
+  <p>The <a href="http://www.memoriabcn.cat/llegats_esclavatge/en/#im4">monument</a> was finished in 1888 for the Universal Exposition of Barcelona. A bas relief between the shields of Puerto Rico and Cuba illustrates contact with the first captives unwillingly brought from the Antilles. On the base there are two sculptures of kneeling Indians, each in front of friar Bernat de Boïl and Captain Pere Margarit — references to the religious and political submission to which the Indians were forced, making them the first enslaved peoples in the Americas.</p>
+</div>
+
+<div class="stop-block">
+  <div class="stop-num">6</div>
+  <h3>Palau Güell</h3>
+  <div class="stop-address">Carrer Nou de la Rambla, 3–5</div>
+  <p>Designed by Antoni Gaudí, this building was partly funded through wealth derived from trade, including the slave trade.</p>
+</div>
+
+<p style="margin-top:3rem;"><a href="countdown-to-civil-war.html" class="btn btn-dark">Next: Countdown to Civil War →</a></p>
+
+</div>
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div class="footer-logo-wrap">
+        <img src="https://seekflag.com/wp-content/uploads/2022/01/Juneteenth-01-1.png" alt="Juneteenth flag" style="height:16px;width:auto;display:block;">
+        <span class="footer-logo-text">Juneteenth Barcelona</span>
+      </div>
+      <p class="footer-tagline">Celebrating Black freedom, heritage, and community in Barcelona.</p>
+    </div>
+    <div class="footer-col"><h5>Pages</h5><ul><li><a href="../about.html">About Us</a></li><li><a href="../event.html">The Event</a></li><li><a href="index.html">Walking Tour</a></li><li><a href="../contact.html">Contact</a></li></ul></div>
+    <div class="footer-col"><h5>Contact</h5><ul><li><a href="mailto:barcelona@juneteenth.es">barcelona@juneteenth.es</a></li></ul></div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 Juneteenth Barcelona. Organized by volunteers with love.</p>
+    <div class="footer-flag"><span style="background:#C8102E"></span><span style="background:#333"></span><span style="background:#00693A"></span></div>
+  </div>
+</footer>
+<div id="google_translate_element"></div>
+<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+<script src="../shared.js"></script>
+</body>
+</html>
