@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: YOUR-GITHUB-USERNAME/juneteenthbarcelona  # ← change this
+  repo: kevinhawkinsdesign/juneteenthbarcelona
   branch: main
 
 media_folder: images
@@ -30,6 +30,122 @@ collections:
               - { label: "Activity", name: activity, widget: string }
               - { label: "Description", name: description, widget: text, required: false }
 
+  # ── HOME PAGE ─────────────────────────────────────────────
+  - name: home_page
+    label: "Home Page"
+    files:
+      - name: home
+        label: "Home Page Content"
+        file: _data/pages/home.json
+        fields:
+          - label: "Hero Section"
+            name: hero_eyebrow
+            widget: string
+            hint: "Small text above the main title, e.g. 'Barcelona · June 20, 2026'"
+          - { label: "Hero Description", name: hero_desc, widget: text }
+          - label: "Next Event Promo"
+            name: next_event_tag
+            widget: string
+            hint: "Tag line, e.g. 'Next Meetup · Monthly Series'"
+          - { label: "Next Event Title", name: next_event_title, widget: string }
+          - { label: "Next Event Date Pill", name: next_event_date_pill, widget: string, hint: "e.g. March 19" }
+          - { label: "Next Event Time", name: next_event_time, widget: string, hint: "e.g. 19:30 – 23:30" }
+          - { label: "Next Event Description", name: next_event_desc, widget: text }
+          - { label: "Next Event Location", name: next_event_location, widget: string }
+          - { label: "Next Event RSVP URL", name: next_event_rsvp_url, widget: string }
+          - { label: "Next Event RSVP Button Label", name: next_event_rsvp_label, widget: string }
+          - { label: "Next Event Series Note", name: next_event_series_note, widget: string }
+          - label: "Intro Section"
+            name: intro_tag
+            widget: string
+          - { label: "Intro Body", name: intro_body, widget: markdown, hint: "The two paragraphs about what Juneteenth is" }
+          - { label: "Intro Quote", name: intro_quote, widget: text }
+          - { label: "Stat 1 Number", name: stat1_num, widget: string }
+          - { label: "Stat 1 Label", name: stat1_label, widget: string }
+          - { label: "Stat 2 Number", name: stat2_num, widget: string }
+          - { label: "Stat 2 Label", name: stat2_label, widget: string }
+          - label: "Walking Tour Section"
+            name: wt_tag
+            widget: string
+          - { label: "Walking Tour Body", name: wt_body, widget: text }
+
+  # ── ABOUT PAGE ────────────────────────────────────────────
+  - name: about_page
+    label: "About Page"
+    files:
+      - name: about
+        label: "About Page Content"
+        file: _data/pages/about.json
+        fields:
+          - label: "Hero Section"
+            name: hero_tag
+            widget: string
+          - { label: "Hero Title", name: hero_title, widget: string }
+          - { label: "Hero Description", name: hero_desc, widget: text }
+          - label: "Mission Section"
+            name: mission_tag
+            widget: string
+          - { label: "Mission Label", name: mission_label, widget: string }
+          - { label: "Mission Text", name: mission_text, widget: markdown }
+          - label: "Story Section"
+            name: story_tag
+            widget: string
+          - { label: "Story Title", name: story_title, widget: string }
+          - { label: "Story Body", name: story_body, widget: markdown }
+          - label: "Goals Section"
+            name: goals_tag
+            widget: string
+          - { label: "Goals Title", name: goals_title, widget: string }
+          - { label: "Goals Intro", name: goals_intro, widget: text }
+          - { label: "Goal 1 Title", name: goal1_title, widget: string }
+          - { label: "Goal 1 Body", name: goal1_body, widget: text }
+          - { label: "Goal 2 Title", name: goal2_title, widget: string }
+          - { label: "Goal 2 Body", name: goal2_body, widget: text }
+          - { label: "Goal 3 Title", name: goal3_title, widget: string }
+          - { label: "Goal 3 Body", name: goal3_body, widget: text }
+          - label: "Committee Section"
+            name: committee_tag
+            widget: string
+          - { label: "Committee Title", name: committee_title, widget: string }
+          - { label: "Committee Subtitle", name: committee_sub, widget: text }
+          - label: "CTA Band"
+            name: cta_title
+            widget: string
+            hint: "Call-to-action title at the bottom"
+          - { label: "CTA Subtitle", name: cta_sub, widget: string }
+          - { label: "CTA Button Label", name: cta_label, widget: string }
+          - { label: "CTA Button URL", name: cta_url, widget: string }
+
+  # ── CONTACT PAGE ──────────────────────────────────────────
+  - name: contact_page
+    label: "Contact Page"
+    files:
+      - name: contact
+        label: "Contact Page Content"
+        file: _data/pages/contact.json
+        fields:
+          - label: "Hero Section"
+            name: hero_tag
+            widget: string
+          - { label: "Hero Title", name: hero_title, widget: string }
+          - label: "Contact Info"
+            name: email
+            widget: string
+            hint: "Contact email address"
+          - { label: "Email Sub-text", name: email_sub, widget: string }
+          - { label: "Venue Label", name: venue_label, widget: string }
+          - { label: "Venue Value", name: venue_value, widget: text }
+          - { label: "Venue Sub-text", name: venue_sub, widget: string }
+          - { label: "Date Label", name: date_label, widget: string }
+          - { label: "Date Value", name: date_value, widget: string }
+          - { label: "Date Sub-text", name: date_sub, widget: string }
+          - { label: "Ways to Get Involved Title", name: ways_title, widget: string }
+          - label: "Form"
+            name: form_tag
+            widget: string
+          - { label: "Form Title", name: form_title, widget: string }
+          - { label: "Form Success Message", name: form_success, widget: string }
+
   # ── ANNOUNCEMENTS / NEWS ───────────────────────────────────
   - name: announcements
     label: "Announcements"
@@ -44,7 +160,6 @@ collections:
       - { label: "Body", name: body, widget: markdown }
       - { label: "Published", name: published, widget: boolean, default: true }
 
-  
   # ── SITE SETTINGS ─────────────────────────────────────────
   - name: settings
     label: "Site Settings"
@@ -58,3 +173,4 @@ collections:
           - { label: "Contact Email", name: email, widget: string }
           - { label: "Instagram URL", name: instagram, widget: string, required: false }
           - { label: "Facebook URL", name: facebook, widget: string, required: false }
+          - { label: "Show Gallery in Nav", name: show_gallery_nav, widget: boolean, default: false }

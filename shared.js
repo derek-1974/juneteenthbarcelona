@@ -30,6 +30,27 @@ const io = new IntersectionObserver((entries) => {
 }, { threshold: 0.08 });
 document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
+// ── Page content loader from _data/pages/<page>.json ──────
+async function loadPageContent(dataFile) {
+  try {
+    const res = await fetch(dataFile);
+    if (!res.ok) return;
+    const data = await res.json();
+    document.querySelectorAll('[data-cms]').forEach(el => {
+      const key = el.getAttribute('data-cms');
+      if (data[key] !== undefined) {
+        el.innerHTML = data[key];
+      }
+    });
+    document.querySelectorAll('[data-cms-href]').forEach(el => {
+      const key = el.getAttribute('data-cms-href');
+      if (data[key] !== undefined) el.href = data[key];
+    });
+  } catch (e) {
+    // Silently fall back to hardcoded HTML content
+  }
+}
+
 // ── Gallery nav toggle (reads from _data/settings.json) ────
 async function applyGalleryNavVisibility() {
   try {
